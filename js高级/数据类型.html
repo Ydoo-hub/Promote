@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+
+        1、数据类型分类
+            * 基本类型 （值类型）
+                * 1、String：任意字符串
+                * 2、Number：任意的数字
+                * 3、boolean：true / false
+                * 4、undefined：undefined
+                * 5、null：null
+            * 对象类型 （引用类型）
+                * 6、Object：任意对象 
+                * Function：一种特别的对象（可以执行）
+                * Array：一种特别的对象（数值下标，内部数据是有序的）
+        2、判断
+            * typeof
+                1、可以判断 undefined / 数字 / 字符串 / 布尔值 / function
+                2、不可以判断 null 和 object object 和 array
+            * instanceof: 判断对象的具体类型
+            * ===
+                1、undefined
+                2、null
+    -->
+<script>
+    // 数据类型分类
+        // 这种普通对象，不可执行，没有数值下标，切内部数据是没有顺序的
+        var obj = {
+            name: 'ydoo',
+            age: 12
+        }
+    
+
+    // 判断
+        // 1.基本数据类型
+            // typeof 返回数据类型的字符串表达式
+            var a, b, c;
+            console.log(a, typeof a, typeof a === 'undefined', a === undefined); // undefind 'undefind' true true
+            a = 3;
+            console.log(typeof a ===  'number'); // true
+            a = 'Ydoo';
+            console.log(typeof a === 'string'); // true
+            a = true;
+            console.log(typeof a === 'boolean'); // true
+            a = null;
+            console.log(typeof a === 'object', a === null); // true true
+            b = {};
+            c = [];
+        //2.对象
+            var obj = {
+                o1: [1, '123', console.log],
+                o2: function () {
+                    console.log('function');
+                    return function () {
+                        return 'sss';
+                    }
+                }
+            }
+            // instanceof 实例的意思
+            console.log(obj instanceof Object, obj instanceof Array); // true false
+            console.log(obj.o1 instanceof Object, obj.o1 instanceof Array); // true true
+            console.log(obj.o2 instanceof Object, obj.o2 instanceof Function); // true true
+            console.log(typeof obj.o2 === 'function', typeof obj.o1, typeof obj); // true object object
+            console.log(typeof obj.o1[2]); // function
+
+            // 获取多个return的function
+            let fun = obj.o2();
+            let result1 = fun();
+            let result2 =obj.o2()();
+            console.log(result1, result2);
+</script>
+</body>
+</html> 
