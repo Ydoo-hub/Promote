@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--     
+        1.undefind 与 null 区别？
+            * undefined代表未赋值
+            * null代表了定义了，且赋值，只是值为null
+        2.什么时候给变量赋值为null呢？
+            * 初始赋值，表明赋值为对象
+            * 结束前，让对象成为垃圾对象（被垃圾回收器回收）
+        3.严格区别变量类型与数据类型？    
+            * 数据的类型
+                * 基本类型
+                * 对象类型
+            * 变量的类型（变量内存值的类型）
+                * 基本类型：保存就是基本类型的数据 a = 3 (a里面存的就是3)
+                * 引用类型：保存的是地址值 a = function () {} (a里面存的就是function的地址)
+    -->
+<script>
+    // 起始
+    var a = null; // 初始赋值，表明赋值为对象 (这里赋值为null，目的是告诉后面的人，这个值等等将要被赋值，也可以不用负责为null。这样会比较严谨)
+    // 确定对象的值
+    a = ['ss'];
+    // 结束回收
+    a = null;
+</script>
+</body>
+
+</html>
