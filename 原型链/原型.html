@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.函数的prototype属性
+        * 每个函数都有一个prototype属性， 它默认指向一个Object 空对象（即称为：原型对象）
+        * 原型对象中有一个属性为constructor，它指向函数对象
+    2.给原型对象添加属性（一般都是方法）
+        * 作用：函数的所有属性实例对象自动拥有原型中的属性（方法）
+    -->
+
+    <!-- 
+        // 显式原型和隐式原型存的都是对象的地址值
+        显式给 函数原型使用， 隐式给 实例使用
+        1.每个函数function都有一个prototype，即是显式原型
+        2.每个实例都有一个__proto__，即隐式原型
+        总结：
+            prototype：在函数定义的时候就自动添加的，默认值是一个空的Object的对象
+            __proto__：创建实例时自动添加的，默认值为构造函数的prototype属性值
+
+    -->
+
+    <!-- 
+        1.原型链
+            * 访问一个对象的属性时，
+                * 先在自身的属性中寻找，找到就放回
+                * 如果自身没有，再沿着__proto__这条链向上查找，找到返回
+                * 如果最终没有找到，返回undefind
+            * 别名：隐式原型链
+            * 作用：用来查找对象的属性（方法）
+            * 整个原型链的尽头（Object对象的__proto__ 为null）
+    -->
+</body>
+<script>
+    console.log(Date.prototype);
+    function Fn () {
+
+    };
+    let f = new Fn();
+    console.log(f.__proto__.constructor);
+    console.log(Fn.prototype);
+
+    // 给原型对象添加属性
+    Fn.prototype.test = function () {
+        console.log('123');
+    }
+
+    let f2 = new Fn();
+    f2.test();
+    f2.__proto__.test();
+    // console.log()
+
+    console.log(f2.tttt()) // 报错
+    console.log(f2.tttt) // undefind
+
+</script>
+</html>
