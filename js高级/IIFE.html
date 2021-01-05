@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.理解 
+            * 全称：立即调用函数表达式 （Immediately-Invoked Function Expression）(匿名函数自调用)
+        2.作用（好处）
+            * 隐藏实现：（闭包）
+            * 不会污染外部（全局）的命名空间
+     -->
+</body>
+<script>
+    (function () { // 匿名函数自调用
+        var a = 3
+        console.log(a + 3);
+    })(); // 闭包
+    // console.log(a);
+
+    (function () { // 向外暴露一个全局函数
+        var a = 1;
+        function test(age) {
+            console.log('她今年' + age +'岁');
+        }
+        window.$ = function () {
+            return {
+                test: test
+            }
+        }
+    })(); // 这里执行是为了向全局抛出一个$()函数，外部使用了$()执行后拿到一个对象，将这个对象给到外部使用
+    $().test(20);
+</script>
+</html>
