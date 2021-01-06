@@ -32,7 +32,7 @@
                 * 如果自身没有，再沿着__proto__这条链向上查找，找到返回
                 * 如果最终没有找到，返回undefind
             * 别名：隐式原型链
-            * 作用：用来查找对象的属性（方法）
+            * 作用：用来查找对象的属性（方法） / 原型链不是用来查找变量的，作用域链
             * 整个原型链的尽头（Object对象的__proto__ 为null）
     -->
 </body>
@@ -57,6 +57,16 @@
 
     console.log(f2.tttt()) // 报错
     console.log(f2.tttt) // undefind
+
+    console.log(Object.prototype);
+    console.log(Function.prototype);
+    console.log(Object.prototype.__proto__);
+
+    /*
+        1.函数的显式原型指向的对象：默认是空Object实例对象（但是Object不满足）
+        2.所有函数都是Funtion的实例（包含Funtion）
+        3.Object的原型对象事原型链的尽头,Object的prototype.__proto__ === null
+    */
 
 </script>
 </html>

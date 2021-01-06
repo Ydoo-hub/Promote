@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.使用函数内部的变量在函数执行完后，任然存活在内存中（延长了局部变量的声明周期）
+        2.让函数外部可以操作（读写）到函数内部的数据（变量 / 函数）
+        问题：
+            1.函数执行完成后，函数内部声明的局部变量是否还存在？ 一般是不存在的，存在闭包中的变量才可能存在
+            2.在函数外部能够直接访问函数内部的局部变量吗？ 不能但是闭包可以解决
+    -->
+</body>
+<script>
+    function fn1() {
+        var a = 2;
+        var obj = {
+            fn2: function fn2() {
+                a++;
+                console.log(a);
+            },
+            fn3: function fn3() {
+                a--;
+                console.log(a);
+            }
+        }
+        // console.log(obj);
+        return obj;
+    };
+    var fn = fn1(); // 这里调用了一次外部函数，所以只产生一个闭包
+    console.log(fn.fn2);
+    (fn.fn2)(); // 这里fn 调用的是内部函数 
+    (fn.fn2)(); // 这里调用的内部函数的
+
+    (fn.fn3)();
+    (fn.fn3)();
+</script>
+</html>

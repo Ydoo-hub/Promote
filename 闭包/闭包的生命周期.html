@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.产生：在嵌套内不函数定义执行完时就产生了（不是调用）
+        2.死亡：在嵌套的内部函数成为垃圾对象时
+     -->
+</body>
+<script>
+      function fn1() {
+        // 此时闭包已经创建了（函数提升，内部函数对象以及创建了）
+        var a = 2;
+        function fn2 () {
+            a++;
+            console.log(a);
+        };
+        return fn2;
+    };
+    var fn = fn1(); // 这里调用了一次外部函数，所以只产生一个闭包
+    fn(); // 这里fn 调用的是内部函数 
+    fn(); // 这里调用的内部函数的
+
+    f = null; // 这个时候闭包死亡
+</script>
+</html>

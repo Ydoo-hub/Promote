@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    // 1
+    var x = 10;
+    function fn() {
+        console.log(x);
+    }
+    
+    function show(f) {
+        var x = 20;
+        f();
+        /*
+            fn()
+        */
+        function fn() {
+            console.log(x);
+        }
+       fn();
+    }
+
+    show(fn)
+
+    // 2
+    var func = function () {
+        console.log(func);
+    }
+    func();
+    var obj = {
+        func2: function() {
+            console.log(this.func2);
+            console.log(func2);
+        }
+    }
+    obj.func2();
+</script>
+</html>

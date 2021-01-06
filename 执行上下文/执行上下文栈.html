@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1.在全局代码执行前，js引擎就会创建一个栈来存储管理所有的执行上下文对象
+        2.在全局执行上下文（window）确定后，将其添加到栈中
+        3.在函数执行上下文创建后（函数被调用才会创建），将其添加到栈中
+        4.在当前函数执行完后，将栈顶的对象移出
+        5.但所有的代码执行完后，栈中只剩下window
+    -->
+</body>
+<script>
+    var a = 10;
+    var bar = function (x) {
+        var b = 5;
+        foo(66 + x);
+    };
+    function foo(y) {
+        console.log(y);
+    };
+    bar(5);
+
+    // test 1
+    console.log('global begin: ' + ins); // global begin: undefined
+    var ins = 1;
+    foo2(1); // foo() begin:' + i
+    function foo2 (i) {
+        alert(i);
+        if (i == 4) {
+            return;
+        }
+        console.log('foo() begin:' + i); // foo() begin: 1 2 3
+        foo2(i+1); // i = 3 的 时候就不执行了
+        console.log('foo() end :' + i); // foo() end : 3 2 1
+    }
+
+    console.log('global end' + ins); // global end 1
+
+    // test 2 先执行变量提升，在执行函数提升 所以这里，a就是function；
+    function asd() {}
+    var asd;
+    console.log(typeof asd); // 'function'
+
+    // test 3
+    if (!(b in window)) {
+        var b = 1;
+    }
+    console.log(b); // 'undefined'
+
+    // test 4
+    var c = 1;
+    function c(c){
+        console.log(c);
+    }
+    c(2); // 报错
+    console.log(c);
+</script>
+</html>
