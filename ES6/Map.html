@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 声明 Map
+    // Map 就是升级版的对象,原来key值只能用字符串,现在key值可以使用对象做key值
+    let m = new Map();
+
+    // 添加元素
+    m.set('name', 'Ydoo');
+    m.set('age', 18);
+    let key = {
+        tt: 'ttrs'
+    };
+    m.set(key, ['good', 'nice', 'well']);
+    m.set(key, ['Yes', 'Ye', 'Y']);  // 会覆盖
+    console.log(m, typeof m);
+
+    // size
+    console.log(m.size);
+
+    // delete
+    console.log(m.delete('name'));
+
+    // 获取
+    console.log(m.get('age'));
+
+    // 清空
+    // console.log(m.clear());
+
+    // 遍历
+    for (let item of m) {
+        console.log(item);
+    }
+</script>
+</html>
