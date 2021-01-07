@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // ES6 允许在大括号里面,直接写入变量和函数,作为对象的属性和方法
+    // 这样的书写更加简洁
+    let name = 'a';
+    let fun = function() {
+        console.log('字符串');
+    }
+
+    const obj = {
+        name,
+        fun,
+        fangfa: function() {
+            console.log('没有简化的');
+        },
+        fangfa2() {
+            console.log('简化的');
+        }
+    }
+    console.log(obj);
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 声明变量
+    let a;
+
+    // 1.变量不能重复声明
+    let b = 'b';
+    // let b = 'b'; // 报错
+
+    // 2.块级作用域  es5中有全局，函数（局部），eval】
+        // 这块级作用域，可以包括了 if else for while
+    {
+        let c = 'c';
+        var d = 'd';
+    }
+    // console.log(c); // 报错
+    console.log(d); // 打印出来
+
+    // 3.不存在变量提示
+    {
+        console.log(e); // 变量提升会打印 undefined
+        let e = 'e';
+        console.log(e);
+    }
+
+    // 4.不影响作用域链
+    {
+        let f = 'f';
+        function fn() {
+            console.log(f); // 可以拿到作用域链的数据
+        };
+        fn();
+    }
+
+
+</script>
+</html>

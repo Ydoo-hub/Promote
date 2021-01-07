@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // ES6 运行使用 箭头 (=>) 定义函数,
+    // 1.声明一个函数
+    let fn = function() {
+        console.log(this);
+    }
+
+    let a = 's';
+    let fn2 = a => {
+        console.log(a);
+    }
+    // console.log(fn2());
+    fn2(a);
+
+    // 2. this 是静态的, this 始终指向函数声明时所在的作用域(继承上下文)
+    function getName() {
+        console.log(this.name);
+    }
+    function getName2() {
+        console.log(this.name);
+    }
+    // 直接调用
+    getName();
+    getName2();
+
+    // call 方法调用
+    getName.call(name);
+    getName2.call(name);
+
+    // 3.不能作为构造函数实例化对象,this指向时静态的
+    let Person = (name, age) => {
+        this.name = name;
+        this.age = age;
+    }
+    let me = new Person('xx', 13);
+    console.log(me);
+
+    // 4.不能使用 arguments 变量
+    let fn = () => {
+        console.log(arguments);
+    }
+    fn(1, 2, 3);
+
+    // 4.箭头函数的简写
+    // 可以省略小括号,当形参有且只有一个的时候
+    let add = (n) => {
+        console.log('add');
+    }
+    let add2 = n => {
+        console.log('add2');
+    }
+
+    // 可以省略花括号,当代码体只有一条语句的时候,且语句的执行结果就是函数的返回值
+    let pow = n => {
+        console.log('pow');
+    }
+    let pow2 = n => console.log('pow2')
+    
+
+</script>
+</html>

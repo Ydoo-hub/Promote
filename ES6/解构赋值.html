@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // ES6 允许按照一定模式从数组和对象中提取值,对变量进行赋值,这就是解构赋值
+    // 1.数组的解构
+    const Eng = ['a1', 'b2', 'c3', 'd4'];
+    let [a, b, c, d] = Eng;
+    console.log(a, b, c, d);
+    
+    //2.对象的解构
+    const obj = {
+        num: '1',
+        length: 1,
+        fun: function() {
+            console.log('对象方法');
+        }
+    }
+    let {num, length, fun} = obj; // 这里定义的名字要跟对象名一样.等于对象key值 寻找同属性名进行赋值
+    console.log(num, length, fun);
+</script>
+</html>
