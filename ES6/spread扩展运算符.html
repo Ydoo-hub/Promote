@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // [...] 扩展运算符能够将数组转换为都好分隔的[参数序列]
+    // 声明一个数组
+    const num = ['1', '2', '3', '4'];
+    
+    // 声明一个函数
+    function fn() {
+        console.log(arguments);
+    }
+
+    fn(...num); // 扩展运算符,是在传入实参这里,rest参数是在形参调用
+
+    // 应用1. 数组合并
+    const num1 = ['1', '2'];
+    const num2 = ['3', '4'];
+    const num3 = num1.concat(num2);
+    const num4 = [...num1, ...num2];
+    console.log(num3, num4);
+
+    // 应用2. 数组的克隆
+    const eng1 = ['e', 'n', 'g'];
+    const eng2 = [...eng1];
+
+    // 应用3. 将伪数组转化为真正的数组
+    function fn() {
+        console.log(arguments);
+        console.log([...arguments]);
+    }
+    fn(1,2,3,4,5,6)
+</script>
+</html>

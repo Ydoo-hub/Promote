@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 声明set
+    let s = new Set();
+    let s2 = new Set(['s','o','v','d','s']);
+    console.log(s,s2);
+
+    // 元素个数
+    console.log(s2.size);
+    console.log(s2.add('66'));
+    console.log(s2.delete('ss'));
+    console.log(s2.has('o'));
+    s2.clear();
+    console.log(s2);
+
+    // 可以用for of
+    
+    // 应用1: 数组去重
+    let arr = [1,2,3,4,5,6,4,3,2,1];
+    let result = [...new Set(arr)];
+    console.log(result);
+    // 应用2: 交集
+    let arr2 = [1,2,3,4,5,6];
+    let arr3 = [2,4,6];
+    let arr4 = [1,3,5,6]
+    let result2 = arr2.filter(item => {
+        // item 是否存在于 arr3 且 存在于 arr4 
+        // 这里判断方法多种 可以使用 find indexOf set后的对象的has方法
+        if (arr3.indexOf(item) !== -1 && arr4.indexOf(item) !== -1) {
+            return true;
+        }
+        return false;
+    })
+    console.log(result2);
+
+    // 应用3: 并集
+    let result3 = [...arr3, ...arr4];
+    result3 = [new Set(result3)];
+    console.log(result3);
+
+    // 应用4: 差集
+    // 交集同理,逆应用 
+</script>
+</html>

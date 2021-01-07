@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // ES6 引入 rest 参数,用于获取参数的实参, 用来代替 arguments
+    // ES5 获取实参的方式
+    function  date() {
+        console.log(arguments);
+    }
+    date('a', 'b', 'c');
+
+    // ES6 的 rest 参数 返回结果是一个数组
+    function date2(...args) {
+        console.log(args); 
+    }
+    date2('e', 'f', 'g');
+
+    // rest 参数必须要放最后
+    function fn(a, b, ...args) {
+        console.log(a);
+        console.log(b);
+        console.log(args);
+    }
+    fn(1,2,3,4,5,6,7,8);
+</script>
+</html>

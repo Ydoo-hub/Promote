@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     
+</body>
+<script>
+    // symbol 标识独一无二类型,是js的第七种数据类型.
+    // symbol 是唯一的, 可以用来解决命名冲突的问题
+    // symbole 不能与其他值进行运算
+    // symbol 定义的对象属性不能使用 for...in 循环遍历 , 但是可以使用Reflect.owmKeys 来获取对象的所有键名
+
+    // 创建symbol
+    let s = Symbol();
+    console.log(s, typeof s);
+
+    let s2 = Symbol('1');
+    let s3 = Symbol('1');
+    console.log(s2, s3, typeof s2, typeof s3, s2 === s3);
+
+    // Symbol.for() 创建
+    let s4 = Symbol.for('2');
+    let s5 = Symbol.for('2');
+    console.log(s4, s5, typeof s4, typeof s5, s4 === s5);
+    
+    // 不能与其他数据不能进行运算 
+
+
+    // 应用1: 扩展对象的方法(对象很大,如果直接添加可能会出问题)
+    let game = {
+        up: function () {
+            console.log('up');
+        },
+        down: function () {
+            console.log('down');
+        },
+        name: 'ydoo',
+        age: 18
+    }
+
+    let methods = {
+        up: Symbol,
+        down: Symbol
+    }
+
+    game[methods.up] = function() {
+        console.log('upup');
+    };
+
+    game[methods.down] = function() {
+        console.log('downdown');
+    };
+
+    console.log(game);
+
+
+</script>
+</html>
