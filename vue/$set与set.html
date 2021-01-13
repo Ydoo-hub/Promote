@@ -1,0 +1,96 @@
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>
+      我叫{{aa.name}}
+      <br>
+      我有辆{{aa.car}}
+      <br>
+      我今年才{{aa.age}}
+      </p>
+ 
+      <button @click="btnAddAge">添加年龄</button>
+      <button @click="btnEditAge">修改年龄</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          aa: {
+            name: "张三",
+            car: "玛莎拉蒂"
+          }
+        },
+        methods: {
+          btnAddAge(){
+            // 给data中的对象动态新增的属性，不能够有响应式的效果，也就是说不能触发视图更新
+            // 如果想要有响应式效果
+            // 1. 就需要提前，在对象中先把属性声明好 在aa中一开始就添加好age属性，哪怕不给值
+            // this.aa.age = 18;
+            // 2. 如果确实需要动态的给aa对象添加age属性，那么我们可以用到vue中提供的$set方法 
+            // 这个方法，可以动态的给数据添加响应式的属性！
+            // this.aa.age = 22; 这样写就没有响应
+            this.$set(this.aa, "age", 18);
+            //或者 Vue.set(this.aa, "age", 18)
+          },
+          btnEditAge(){
+              console.log(this.aa);
+              this.aa.age = 22;
+          }
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="item in students" :key="item.id">{{item.name}}</li>
+      </ul>
+ 
+      <button @click="btnChangeName">改名字</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+      const vm = new Vue({
+        el: "#app",
+        data: {
+          students: [
+            { id: 1, name: "aa" },
+            { id: 2, name: "bb" },
+            { id: 3, name: "cc" }
+          ]
+        },
+        methods: {
+          btnChangeName() {
+            // 数组通过索引直接修改索引对应的内容，是无法实现响应式的效果
+            // this.students[1] = {id: 2, name: "dd"}; // 没有效果
+            // this.students.pop({ id: 2, name: "bb" });
+            // console.log(this.students);
+            this.$set(this.students, "1", {id: 2, name: "贵安"})
+ 
+            // this.$set(要设置属性的对象, "要修改/添加的属性名", 值)
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
