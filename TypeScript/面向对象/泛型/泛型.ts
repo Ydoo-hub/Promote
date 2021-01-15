@@ -25,7 +25,21 @@ fun<number, string>(123, 'hello');
 interface myTy{
     length: number
 }
-
+// Ty extends myTy 表示泛型Ty必须是myTy实现类（子类）
 function fun2<Ty extends myTy>(a: Ty):number{
     return a.length;
 }
+
+fun2('myTY');  // 有length
+fun2(231) // 这里报错，231没有length
+fun2([2]) // 有length
+
+
+class MyClass<T> {
+    name: T;
+    constructor(name: T){
+        this.name = name;
+    }
+}
+
+const mc = new MyClass<string>('老孙来也');
