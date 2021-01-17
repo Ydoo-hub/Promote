@@ -31,7 +31,7 @@ function fun2<Ty extends myTy>(a: Ty):number{
 }
 
 fun2('myTY');  // 有length
-fun2(231) // 这里报错，231没有length
+// fun2(231) // 这里报错，231没有length
 fun2([2]) // 有length
 
 

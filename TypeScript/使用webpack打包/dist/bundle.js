@@ -1,0 +1,1 @@
+!function(){"use strict";var o=["1","2","3"];o.push("4"),console.log("hhh"),console.log(43),console.log("nihao"),console.log(o[1]),console.log(o[2]),console.log(o[3]),console.log(o[4]),console.log(o)}();
