@@ -24,7 +24,6 @@ let Dep = {
 
 // 发布订阅模式 + 数据劫持
 
-
 // 劫持方法
 let dataHijack = function({data, tag, datakey, selector}) {
     let value = '';

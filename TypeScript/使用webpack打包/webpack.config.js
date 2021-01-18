@@ -5,7 +5,8 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 // 引入 clean-webpack-plugin 清除dist再新增dist
-const { CleanWebpacPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+
 
 // 
 
@@ -73,7 +74,7 @@ module.exports = {
             // title: "自己玩webpack", // 可以配置
             template: './src/index.html'
         }),
-        new HTMLWebpackPlugin(),
+        // new CleanWebpackPlugin()
     ],
     // 用来设置引用模块
     resolve: {
