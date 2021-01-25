@@ -18,7 +18,6 @@ function obj2str(obj) {
 function ajax(type,url,obj,timeout,successCallback,errorCallback) {
     //将对象转化成字符串
     var str = obj2str(obj);  //[username=ydoo&password=yd]
-
     // var xmlhttp = new XMLHttpRequest();
     var xmlhttp;//创建异步对象
     if (window.XMLHttpRequest)
@@ -29,7 +28,6 @@ function ajax(type,url,obj,timeout,successCallback,errorCallback) {
     {// code for IE6, IE5
         xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
     }
-
 // type用toLowerCase()方法 将type转成小写
     if(type.toLowerCase() === 'get' ) {
         /*
@@ -57,10 +55,6 @@ function ajax(type,url,obj,timeout,successCallback,errorCallback) {
         xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
         xmlhttp.send(str);//发送请求
     }
-
-
-
-
     xmlhttp.onreadystatechange = function (ev) { //监听
         /*
         *0: 请求未初始化
@@ -69,7 +63,6 @@ function ajax(type,url,obj,timeout,successCallback,errorCallback) {
         *3: 请求处理中
         *4: 请求已完成，且响应已就绪
         * */
-
         if(xmlhttp.readyState == 4) {
             clearInterval(timer);
             console.log('请求完成');
@@ -83,21 +76,14 @@ function ajax(type,url,obj,timeout,successCallback,errorCallback) {
                 errorCallback();
             }
             //处理返回结果
-
-
         }
     }
-
-
-
     //判断是不是传入超时时间
     if(timeout){
-
         timer = setInterval(function () {
             console.log("中断请求")
             xmlhttp.abort();
             clearInterval(timer);
         },timeout)
-
     }
 }

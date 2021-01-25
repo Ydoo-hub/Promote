@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./promise_class.js"></script>
+    <script src="./promise.js"></script>
 </head>
 <body>
     
@@ -16,16 +16,19 @@
         }, 1000);
     });
 
-    let p2 = new Promise((resolve, reject) => {
-        reject('OK2');
-    });
+    console.log(p1);
+    // let p2 = new Promise((resolve, reject) => {
+    //     resolve('OK2');
+    // });
 
-    let p3 = new Promise((resolve, reject) => {
-        resolve('OK3');
-    });
+    // let p3 = new Promise((resolve, reject) => {
+    //     resolve('OK3');
+    // });
 
-    let promises = Promise.race([p1, p2, p3])
-    console.log(promises)
+    // // let promises = Promise.race([p1, p2, p3])
+    // let promises = Promise.all([p1, p2, p3])
+
+    // console.log(promises) 
 
 </script>
 </html>
