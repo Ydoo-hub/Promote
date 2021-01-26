@@ -189,3 +189,15 @@ let arr27 = [1, 2, 3, 4]
 arr27.fill(5); //[5,5,5,5]
 arr27.fill(6,1,3); //[1,6,6,5]
 console.log([].fill.call({length:3},4)); //{0:4,1:4,2:4}
+
+// 22.entries都取/keys取键/values取值
+let arr28 = ['a', 'b', 'c'];
+for(let key of arr.keys()){
+    console.log(key) //0,1,2   
+}                  
+for(let value of arr.values()){
+    console.log(value) //a,b,c 
+}               
+for(let [key, value] of arr.entries()){
+    console.log([key,value]) //[0,'a'],[1,'b'],[2,'c']
+} 
