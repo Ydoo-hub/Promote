@@ -200,4 +200,4 @@ for(let value of arr.values()){
 }               
 for(let [key, value] of arr.entries()){
     console.log([key,value]) //[0,'a'],[1,'b'],[2,'c']
-} 
+}
